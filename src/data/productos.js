@@ -2,6 +2,7 @@ const productos = [
   {
     nombre: "Café Caramel con Chocolate",
     precio: 59.9,
+    max: 5,
     imagen: "cafe_01",
     categoria_id: 1,
     id: 1,
@@ -9,6 +10,7 @@ const productos = [
   {
     nombre: "Café Frio con Chocolate Grande",
     precio: 49.9,
+    max: 5,
     imagen: "cafe_02",
     categoria_id: 1,
     id: 2,
@@ -16,6 +18,7 @@ const productos = [
   {
     nombre: "Latte Frio con Chocolate Grande",
     precio: 54.9,
+    max: 5,
     imagen: "cafe_03",
     categoria_id: 1,
     id: 3,
@@ -23,6 +26,7 @@ const productos = [
   {
     nombre: "Latte Frio con Chocolate Grande",
     precio: 54.9,
+    max: 5,
     imagen: "cafe_04",
     categoria_id: 1,
     id: 4,
@@ -30,6 +34,7 @@ const productos = [
   {
     nombre: "Malteada Fria con Chocolate Grande",
     precio: 54.9,
+    max: 5,
     imagen: "cafe_05",
     categoria_id: 1,
     id: 5,
@@ -37,6 +42,7 @@ const productos = [
   {
     nombre: "Café Mocha Caliente Chico",
     precio: 39.9,
+    max: 5,
     imagen: "cafe_06",
     categoria_id: 1,
     id: 6,
@@ -44,6 +50,7 @@ const productos = [
   {
     nombre: "Café Mocha Caliente Grande con Chocolate",
     precio: 59.9,
+    max: 5,
     imagen: "cafe_07",
     categoria_id: 1,
     id: 7,
@@ -51,6 +58,7 @@ const productos = [
   {
     nombre: "Café Caliente Capuchino Grande",
     precio: 59.9,
+    max: 5,
     imagen: "cafe_08",
     categoria_id: 1,
     id: 8,
@@ -58,6 +66,7 @@ const productos = [
   {
     nombre: "Café Mocha Caliente Mediano",
     precio: 49.9,
+    max: 5,
     imagen: "cafe_09",
     categoria_id: 1,
     id: 9,
@@ -65,6 +74,7 @@ const productos = [
   {
     nombre: "Café Mocha Frio con Caramelo Mediano",
     precio: 49.9,
+    max: 5,
     imagen: "cafe_10",
     categoria_id: 1,
     id: 10,
@@ -72,6 +82,7 @@ const productos = [
   {
     nombre: "Café Mocha Frio con Chocolate Mediano",
     precio: 49.9,
+    max: 5,
     imagen: "cafe_11",
     categoria_id: 1,
     id: 11,
@@ -79,6 +90,7 @@ const productos = [
   {
     nombre: "Café Espresso",
     precio: 29.9,
+    max: 5,
     imagen: "cafe_12",
     categoria_id: 1,
     id: 12,
@@ -86,6 +98,7 @@ const productos = [
   {
     nombre: "Café Capuchino Grande con Caramelo",
     precio: 59.9,
+    max: 5,
     imagen: "cafe_13",
     categoria_id: 1,
     id: 13,
@@ -93,6 +106,7 @@ const productos = [
   {
     nombre: "Café Caramelo Grande",
     precio: 59.9,
+    max: 5,
     imagen: "cafe_14",
     categoria_id: 1,
     id: 14,
