@@ -1,11 +1,42 @@
+import { createRef, useState } from "react";
 import { Link } from "react-router-dom";
+import axiosClient from "../../utils/axios";
+import Alerta from "../../components/Alerta";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Register() {
+  const nameRef = createRef();
+  const emailRef = createRef();
+  const passwordRef = createRef();
+  const passwordConfimationRef = createRef();
+
+  const { register } = useAuth({ middleware: "guest", url: "/" });
+
+  const [errores, setErrores] = useState([]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const datos = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      password_confirmation: passwordConfimationRef.current.value,
+    };
+    await register(datos, setErrores);
+  };
+
   return (
     <>
-      <div className="bg-white shadow-md rounded-md px-5 py-5">
+      <div className="bg-white shadow-md rounded-md px-5 py-5 w-full">
         <h1 className="font-bold text-3xl text-center mb-4">Crear cuenta</h1>
-        <form action="">
+        <form onSubmit={handleSubmit} noValidate>
+          {errores && (
+            <div className="mb-4">
+              {errores.map((error, index) => (
+                <Alerta key={index}>{error}</Alerta>
+              ))}
+            </div>
+          )}
           <div className="mb-4">
             <label htmlFor="name" className="text-slate-800">
               Nombre
@@ -15,6 +46,7 @@ export default function Register() {
               id="name"
               name="name"
               className="bg-gray-50 w-full mt-2 p-3"
+              ref={nameRef}
             />
           </div>
           <div className="mb-4">
@@ -26,6 +58,7 @@ export default function Register() {
               id="email"
               name="email"
               className="bg-gray-50 w-full mt-2 p-3"
+              ref={emailRef}
             />
           </div>
           <div className="mb-4">
@@ -37,6 +70,7 @@ export default function Register() {
               id="password"
               name="password"
               className="bg-gray-50 w-full mt-2 p-3"
+              ref={passwordRef}
             />
           </div>
           <div className="mb-4">
@@ -48,6 +82,7 @@ export default function Register() {
               id="password_confirmation"
               name="password_confirmation"
               className="bg-gray-50 w-full mt-2 p-3"
+              ref={passwordConfimationRef}
             />
           </div>
           <input

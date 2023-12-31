@@ -1,11 +1,39 @@
 import { Link } from "react-router-dom";
+import { createRef, useState } from "react";
+import Alerta from "../../components/Alerta";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Login() {
+  const emailRef = createRef();
+  const passwordRef = createRef();
+
+  const [errores, setErrores] = useState([]);
+  const { login } = useAuth({
+    middleware: "guest",
+    url: "/",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const datos = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+    login(datos, setErrores);
+  };
+
   return (
     <>
       <div className="bg-white shadow-md rounded-md px-5 py-5">
         <h1 className="font-bold text-3xl text-center mb-4">Iniciar Sesion</h1>
-        <form action="">
+        <form onSubmit={handleSubmit} noValidate>
+          {errores && (
+            <div className="mb-4">
+              {errores.map((error, index) => (
+                <Alerta key={index}>{error}</Alerta>
+              ))}
+            </div>
+          )}
           <div className="mb-4">
             <label htmlFor="email" className="text-slate-800">
               Email
@@ -15,6 +43,7 @@ export default function Login() {
               id="email"
               name="email"
               className="bg-gray-50 w-full mt-2 p-3"
+              ref={emailRef}
             />
           </div>
           <div className="mb-4">
@@ -26,6 +55,7 @@ export default function Login() {
               id="password"
               name="password"
               className="bg-gray-50 w-full mt-2 p-3"
+              ref={passwordRef}
             />
           </div>
           <input
@@ -37,10 +67,7 @@ export default function Login() {
       </div>
       <nav className="mt-5">
         <span>¿No tienes una cuenta? </span>
-        <Link
-          to="/auth/register"
-          className="text-blue-800 font-bold underline"
-        >
+        <Link to="/auth/register" className="text-blue-800 font-bold underline">
           Registrate
         </Link>
       </nav>
